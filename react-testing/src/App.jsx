@@ -1,49 +1,27 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
+import { useState } from "react";
+import './App.css'
+import TodoList from "./todolist/TodoList";
 
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
-// export default App
-
-function App () {
-  const text = "Jodi Jonatan Karo karo";
-
+function SayHello ({text = 'Anontmous'}) {
   return (
-    <div className="min-h-screen bg-sky-500 text-center pt-6">
-      <h2 className="font-bold text-xl">Hello, World!</h2>
-      <p>Belajar React Dasar ✌️</p>
-      <h2>{text.toUpperCase()}</h2>
-    </div>
+    <h2 className="text-sky-700 font-bold text-2xl">Hello, {text}, <span className="text-black font-normal text-md">nice to meet you!</span></h2>
   )
 }
 
-export default App
+export default function App () {
+  const author = "Jodi Jonatan Karo karo"
+  const [count, setCount] = useState(0)
+
+  return (
+    <div className="min-h-screen bg-[url(assets/background.jpg)] bg-cover text-center pt-16">
+      <h2 className="font-bold text-xl">Hello, World!</h2>
+      <p>Belajar React Dasar ✌️</p>
+      <h2>{author.toUpperCase()}</h2>
+      <button className="bg-sky-200 py-1 px-2 rounded-full cursor-pointer" onClick={() => setCount((count) => count + 1)}>
+        Like {count}
+      </button>
+      <SayHello text={author} />
+      <TodoList />
+    </div>
+  )
+}
