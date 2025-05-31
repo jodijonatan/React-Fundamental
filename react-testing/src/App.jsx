@@ -1,6 +1,10 @@
 import { useState } from "react";
 import './App.css'
 import TodoList from "./todolist/TodoList";
+import Table from "./table/Table";
+import AlertButton from "./button/AlertButton";
+import MyButton from "./button/MyButton";
+import Toolbar from "./button/Toolbar";
 
 function SayHello ({text = 'Anontmous'}) {
   return (
@@ -22,6 +26,14 @@ export default function App () {
       </button>
       <SayHello text={author} />
       <TodoList />
+      <Table />
+      <AlertButton text="Click Me" message="Tombol telah diklik"/> <br/>
+      <MyButton text="Smash Me" onSmash={() => alert("Smash berhasil")}/> <br/>
+      <MyButton text="Hit me" onSmash={() => alert("Hit berhasil")}/>
+      <Toolbar onClick={(e) => {
+        e.stopPropagation()
+        alert("You have clicked on the toolbar")
+      }}/>
     </div>
   )
 }
