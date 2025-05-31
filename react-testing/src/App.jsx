@@ -5,6 +5,9 @@ import Table from "./table/Table";
 import AlertButton from "./button/AlertButton";
 import MyButton from "./button/MyButton";
 import Toolbar from "./button/Toolbar";
+import SearchForm from "./form/SearchForm";
+import SayHelloForm from "./form/SayHelloForm";
+import Counter from "./form/Counter";
 
 function SayHello ({text = 'Anontmous'}) {
   return (
@@ -17,7 +20,7 @@ export default function App () {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="min-h-screen bg-[url(assets/background.jpg)] bg-cover text-center pt-16">
+    <div className="min-h-screen bg-slate-600 text-center py-16">
       <h2 className="font-bold text-xl">Hello, World!</h2>
       <p>Belajar React Dasar ✌️</p>
       <h2>{author.toUpperCase()}</h2>
@@ -34,6 +37,9 @@ export default function App () {
         e.stopPropagation()
         alert("You have clicked on the toolbar")
       }}/>
+      <SearchForm />
+      <SayHelloForm />
+      <Counter />
     </div>
   )
 }
